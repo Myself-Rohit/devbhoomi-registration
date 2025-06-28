@@ -34,7 +34,7 @@ const Auth = () => {
       onSubmit={handleSubmit}
       className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6"
     >
-      <h1 className="text-3xl font-bold">{isSignIn ? "Sign In" : "Sign Up"}</h1>
+      <h1 className="text-3xl font-bold">Sign In</h1>
       <div className="bg-gray-800 p-6 mt-6 rounded-lg w-full max-w-md shadow-lg">
         <div className="flex flex-col gap-4">
           <div className="flex items-center bg-gray-900 p-2 rounded-lg border border-gray-700">
@@ -58,15 +58,6 @@ const Auth = () => {
           <button className="bg-green-600 p-3 rounded-lg hover:bg-green-500 w-full text-center font-semibold">
             Sign In
           </button>
-          {/* <p className="text-gray-400 text-sm text-center mt-2">
-            {isSignIn ? "Don't have an account? " : "Already have an account? "}
-            <span
-              onClick={() => setIsSignIn(!isSignIn)}
-              className="text-green-500 cursor-pointer"
-            >
-              {isSignIn ? "Sign Up" : "Sign In"}
-            </span>
-          </p> */}
         </div>
       </div>
     </form>
