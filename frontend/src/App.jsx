@@ -8,7 +8,7 @@ import { Route, Routes } from "react-router";
 import UserDetails from "./components/userDetailPage";
 import { useAuthContext } from "./context/AuthContext";
 import Auth from "./components/Auth";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 
 function App() {
@@ -18,8 +18,8 @@ function App() {
   const handleRegistrationComplete = async (userData) => {
     setCompletedRegistration(userData);
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/user/register",
+      await axios.post(
+        `${import.meta.env.VITE_API_BASE_URL}/user/register`,
         userData
       );
     } catch (err) {
