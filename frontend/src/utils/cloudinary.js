@@ -2,7 +2,7 @@ import axios from "axios";
 
 const getSignature = async () => {
   const res = await axios.post(
-    "http://localhost:5000/api/cloudinary/signature"
+    `${import.meta.env.VITE_API_BASE_URL}/cloudinary/signature`
   );
   return res.data;
 };

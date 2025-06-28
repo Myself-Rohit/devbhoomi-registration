@@ -6,15 +6,13 @@ import { toast } from "react-toastify";
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isSignIn, setIsSignIn] = useState(true);
   const { setLoggedInUser } = useAuthContext();
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/auth/${
-          isSignIn ? "signin" : "signup"
+        `${import.meta.env.VITE_API_BASE_URL}/auth/signin
         }`,
         { email, password }
       );
@@ -58,9 +56,9 @@ const Auth = () => {
             />
           </div>
           <button className="bg-green-600 p-3 rounded-lg hover:bg-green-500 w-full text-center font-semibold">
-            {isSignIn ? "Sign In" : "Sign Up"}
+            Sign In
           </button>
-          <p className="text-gray-400 text-sm text-center mt-2">
+          {/* <p className="text-gray-400 text-sm text-center mt-2">
             {isSignIn ? "Don't have an account? " : "Already have an account? "}
             <span
               onClick={() => setIsSignIn(!isSignIn)}
@@ -68,7 +66,7 @@ const Auth = () => {
             >
               {isSignIn ? "Sign Up" : "Sign In"}
             </span>
-          </p>
+          </p> */}
         </div>
       </div>
     </form>

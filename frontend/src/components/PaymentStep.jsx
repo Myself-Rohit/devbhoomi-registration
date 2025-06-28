@@ -70,7 +70,6 @@ export default function PaymentStep({
       const rzp = new window.Razorpay(options);
       rzp.open();
     } catch (err) {
-      console.error("Payment Error:", err);
       onPaymentError("Error initializing payment.");
       setIsProcessing(false);
     }
