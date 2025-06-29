@@ -40,6 +40,8 @@ export default function EducationInfoStep({ data, onChange, errors }) {
                 <option value="Post Graduation">Post Graduation</option>
                 <option value="Graduation">Graduation</option>
                 <option value="Diploma">Diploma</option>
+                <option value="12th">12th</option>
+                <option value="10th">10th</option>
               </select>
             </div>
             {errors.highestQualification && (
@@ -52,7 +54,11 @@ export default function EducationInfoStep({ data, onChange, errors }) {
           {/* Course*/}
           <div className="space-y-2">
             <label className="block text-sm font-medium text-gray-700">
-              {data?.highestQualification || ""} Course{" "}
+              {data?.highestQualification || ""}
+              {data?.highestQualification === "12th" ||
+              data?.highestQualification === "10th"
+                ? " Stream"
+                : " Course"}
               <span className="text-red-500">*</span>
             </label>
             <div className="relative">
@@ -64,7 +70,12 @@ export default function EducationInfoStep({ data, onChange, errors }) {
                 className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all ${
                   errors.course ? "border-red-300 bg-red-50" : "border-gray-300"
                 }`}
-                placeholder="Enter Course Name"
+                placeholder={`Enter ${
+                  data?.highestQualification === "12th" ||
+                  data?.highestQualification === "10th"
+                    ? "Stream"
+                    : "Course Name"
+                } `}
               />
             </div>
             {errors.course && (

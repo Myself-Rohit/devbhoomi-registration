@@ -84,6 +84,10 @@ const userSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
+      jobInterest: {
+        type: String,
+        required: true,
+      },
       aadhaar: {
         type: String,
         required: true,

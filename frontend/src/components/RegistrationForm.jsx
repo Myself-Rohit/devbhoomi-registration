@@ -7,7 +7,7 @@ import ExperienceInfoStep from "./ExperienceInfoStep";
 import TermsAndCondition from "./TermsAndCondition";
 
 export default function RegistrationForm({ onRegistrationComplete }) {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(3);
   const [isAgree, setIsAgree] = useState(false);
   const [formData, setFormData] = useState({
     personalInfo: {},
@@ -85,6 +85,11 @@ export default function RegistrationForm({ onRegistrationComplete }) {
       if (!experienceInfo.experience)
         newErrors.experience = "Your experience is required";
       if (!experienceInfo.skills) newErrors.skills = "Skills is required";
+      if (!experienceInfo.company) newErrors.company = "Company is required";
+      if (!experienceInfo.experienceYears)
+        newErrors.experienceYears = "Years of experience is required";
+      if (!experienceInfo.jobInterest)
+        newErrors.jobInterest = "Interested job role is required";
       if (!experienceInfo.aadhaar) newErrors.aadhaar = "Aadhaar is required";
       if (!experienceInfo.photo) newErrors.photo = "Photo is required";
       if (!experienceInfo.resume) newErrors.resume = "Resume is required";

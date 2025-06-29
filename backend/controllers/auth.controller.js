@@ -7,13 +7,15 @@ export const signin = async (req, res) => {
     if (!email || !password) {
       return res.status(400).json({ message: "All fields required!" });
     }
+    const trimEmail = email.trim();
+    const trimPassword = password.trim();
     if (
-      email !== "devbhoomiglobalservices@gmail.com" ||
-      password !== "Devbhoomi@18112023"
+      trimEmail !== "devbhoomiglobalservices@gmail.com" ||
+      trimPassword !== "Devbhoomi@18112023"
     ) {
       return res.status(400).json({ message: "Invalid Admin Credential" });
     }
-    const admin = await Admin.findOne({ email });
+    const admin = await Admin.findOne({ email:trimEmail });
     if (!admin) {
       return res.status(400).json({ message: "Admin not found" });
     }

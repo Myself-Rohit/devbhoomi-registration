@@ -85,6 +85,11 @@ const UserDetails = () => {
           experience.experienceYears || "N/A",
         ],
         ["Experience Info", "Skills", experience.skills || "N/A"],
+        [
+          "Experience Info",
+          "Interested Job role",
+          experience.jobInterest || "N/A",
+        ],
 
         ["", "", ""],
         ["Payment Info", "Amount", `Rs.${payment.amount || "N/A"}`],
@@ -177,7 +182,12 @@ const UserDetails = () => {
             {user.educationInfo.highestQualification}
           </p>
           <p>
-            <strong>Course : </strong>
+            <strong>
+              {user.educationInfo.highestQualification === "12th" ||
+              user.educationInfo.highestQualification === "10th"
+                ? "Stream : "
+                : "Course : "}
+            </strong>
             {user.educationInfo.course}
           </p>
           <p>
@@ -196,6 +206,10 @@ const UserDetails = () => {
         </p>
         <p>
           <strong>Skills : </strong> {user.experienceInfo?.skills}
+        </p>
+        <p>
+          <strong>Interested Job Role : </strong>{" "}
+          {user.experienceInfo?.jobInterest}
         </p>
         <div className="flex justify-between gap-4 flex-wrap">
           <p>

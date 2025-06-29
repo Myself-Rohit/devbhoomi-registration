@@ -45,7 +45,7 @@ export default function ExperienceInfoStep({ data, onChange, errors }) {
         {/* Company */}
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">
-            Company/Organization
+            Company/Organization <span className="text-red-500">*</span>
           </label>
           <div className="relative">
             <Building2 className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
@@ -53,23 +53,33 @@ export default function ExperienceInfoStep({ data, onChange, errors }) {
               type="text"
               value={data.company || ""}
               onChange={(e) => onChange("company", e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+              className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
+                errors.company ? "border-red-300 bg-red-50" : "border-gray-300"
+              }`}
               placeholder="Enter your company name"
             />
           </div>
+          {errors.company && (
+            <p className="text-sm text-red-600">{errors.company}</p>
+          )}
         </div>
 
         {/* Years of Experience */}
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">
             Years of Experience
+            <span className="text-red-500">*</span>
           </label>
           <div className="relative">
             <Award className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
             <select
               value={data.experienceYears || ""}
               onChange={(e) => onChange("experienceYears", e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+              className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
+                errors.experienceYears
+                  ? "border-red-300 bg-red-50"
+                  : "border-gray-300"
+              }`}
             >
               <option value="">Select experience</option>
               <option value="0-1">0-1 years</option>
@@ -79,6 +89,9 @@ export default function ExperienceInfoStep({ data, onChange, errors }) {
               <option value="16+">16+ years</option>
             </select>
           </div>
+          {errors.experienceYears && (
+            <p className="text-sm text-red-600">{errors.experienceYears}</p>
+          )}
         </div>
 
         {/* Skills */}
@@ -100,6 +113,30 @@ export default function ExperienceInfoStep({ data, onChange, errors }) {
           </div>{" "}
           {errors.skills && (
             <p className="text-sm text-red-600">{errors.skills}</p>
+          )}
+        </div>
+        {/* Job Interest */}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-700">
+            In which job role are you interested, or for which job role do you
+            want to apply? <span className="text-red-500">*</span>
+          </label>
+          <div className="relative">
+            <Wrench className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              value={data.jobInterest || ""}
+              onChange={(e) => onChange("jobInterest", e.target.value)}
+              className={`w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all ${
+                errors.jobInterest
+                  ? "border-red-300 bg-red-50"
+                  : "border-gray-300"
+              }`}
+              placeholder="Enter your interested job role"
+            />
+          </div>{" "}
+          {errors.jobInterest && (
+            <p className="text-sm text-red-600">{errors.jobInterest}</p>
           )}
         </div>
 
