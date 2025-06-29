@@ -142,7 +142,7 @@ const UserDetails = () => {
   return (
     <div className="p-6  mx-auto bg-gray-200">
       <h2 className="text-2xl font-bold mb-4 text-center">User Details</h2>
-      <div className="flex justify-around gap-20 ">
+      <div className="flex justify-around flex-wrap gap-20 ">
         <div className="">
           <p>
             <strong>Name : </strong> {user.personalInfo.fullName}
