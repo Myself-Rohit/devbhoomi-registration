@@ -8,7 +8,7 @@ export default function PaymentStep({
   onPaymentError,
 }) {
   const [isProcessing, setIsProcessing] = useState(false);
-  const [amount] = useState(100);
+  const [amount] = useState(35000);
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
       const script = document.createElement("script");
