@@ -1,6 +1,10 @@
 import { Percent, Layers, GraduationCap } from "lucide-react";
+import { useEffect } from "react";
 
 export default function EducationInfoStep({ data, onChange, errors }) {
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">

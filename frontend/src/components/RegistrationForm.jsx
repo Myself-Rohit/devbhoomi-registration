@@ -7,7 +7,7 @@ import ExperienceInfoStep from "./ExperienceInfoStep";
 import TermsAndCondition from "./TermsAndCondition";
 
 export default function RegistrationForm({ onRegistrationComplete }) {
-  const [currentStep, setCurrentStep] = useState(3);
+  const [currentStep, setCurrentStep] = useState(1);
   const [isAgree, setIsAgree] = useState(false);
   const [formData, setFormData] = useState({
     personalInfo: {},
@@ -197,7 +197,7 @@ export default function RegistrationForm({ onRegistrationComplete }) {
                     className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all ${
                       step.id < currentStep
                         ? "bg-green-500 text-white"
-                        : step.id === currentStep
+                        : step.id === currentStep || currentStep === 5
                         ? "bg-blue-500 text-white"
                         : "bg-gray-200 text-gray-600"
                     }`}

@@ -1,7 +1,11 @@
 import { Briefcase, Building2, Award, Upload, Wrench } from "lucide-react";
 import { uploadSignedImage } from "../utils/cloudinary.js";
+import { useEffect } from "react";
 
 export default function ExperienceInfoStep({ data, onChange, errors }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">

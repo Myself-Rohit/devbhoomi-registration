@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CreditCard, Loader } from "lucide-react";
 import axios from "axios";
 
@@ -9,6 +9,9 @@ export default function PaymentStep({
 }) {
   const [isProcessing, setIsProcessing] = useState(false);
   const [amount] = useState(35000);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
       const script = document.createElement("script");
