@@ -117,7 +117,7 @@ export default function RegistrationForm({ onRegistrationComplete }) {
       educationInfo: formData.educationInfo,
       experienceInfo: formData.experienceInfo,
       paymentInfo: {
-        amount: 35000,
+        amount: 100,
         paymentId: paymentData.razorpay_payment_id,
         status: "completed",
         timestamp: new Date().toISOString(),

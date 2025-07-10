@@ -15,6 +15,7 @@ export const createOrder = async (req, res) => {
       receipt: `rcptid_${Date.now()}`,
       payment_capture: 1,
     });
+    console.log("order>>", order);
     res.status(201).json(order);
   } catch (err) {
     res.status(500).json({ error: "Failed to create order" });
