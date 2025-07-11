@@ -19,7 +19,7 @@ function App() {
     setCompletedRegistration(userData);
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/user/register`,
+        `${import.meta.env.VITE_API_BASE_URL}/user/update`,
         userData
       );
     } catch (err) {

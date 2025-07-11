@@ -125,11 +125,6 @@ export default function RegistrationForm({ onRegistrationComplete }) {
       registrationDate: new Date().toISOString(),
     };
 
-    const existingUsers = JSON.parse(
-      localStorage.getItem("registeredUsers") || "[]"
-    );
-    existingUsers.push(userData);
-    localStorage.setItem("registeredUsers", JSON.stringify(existingUsers));
     onRegistrationComplete(userData);
   };
 

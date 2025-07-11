@@ -90,3 +90,81 @@ export const registerUser = async (req, res) => {
     res.status(500).send({ error: err.message });
   }
 };
+
+export const updateUser = async (req, res) => {
+  const { personalInfo, educationInfo, experienceInfo, paymentInfo } = req.body;
+  const {
+    fullName,
+    relativeName,
+    email,
+    phone,
+    alternatePhone,
+    gender,
+    dateOfBirth,
+    currentAddress,
+    permanentAddress,
+    state,
+    city,
+  } = personalInfo;
+  const { highestQualification, course, percentage, passYear } = educationInfo;
+  const {
+    experience,
+    company,
+    experienceYears,
+    skills,
+    jobInterest,
+    aadhaar,
+    photo,
+    pancard,
+    resume,
+  } = experienceInfo;
+  const { amount, paymentId, timestamp } = paymentInfo;
+  try {
+    await User.findOneAndUpdate(
+      { email },
+      {
+        personalInfo: {
+          fullName,
+          relativeName,
+          email,
+          phone,
+          alternatePhone,
+          gender,
+          dateOfBirth,
+          currentAddress,
+          permanentAddress,
+          state,
+          city,
+        },
+        educationInfo: {
+          highestQualification,
+          course,
+          percentage,
+          passYear,
+        },
+        experienceInfo: {
+          experience,
+          company,
+          experienceYears,
+          skills,
+          jobInterest,
+          aadhaar,
+          photo,
+          pancard,
+          resume,
+        },
+        paymentInfo: {
+          paymentId,
+          amount,
+          status: "completed",
+          timestamp,
+        },
+      },
+      { new: true }
+    );
+
+    res.status(200).send({ message: "User updated successfully." });
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+};

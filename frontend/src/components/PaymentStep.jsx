@@ -40,6 +40,7 @@ export default function PaymentStep({
         `${import.meta.env.VITE_API_BASE_URL}/user/create-order`,
         { amount }
       );
+
       const { data } = res;
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
@@ -70,6 +71,15 @@ export default function PaymentStep({
           },
         },
       };
+      try {
+        await axios.post(
+          `${import.meta.env.VITE_API_BASE_URL}/user/register`,
+          formData
+        );
+      } catch (err) {
+        alert("Error: " + err.response?.data?.error || err.message);
+      }
+
       const rzp = new window.Razorpay(options);
       rzp.open();
     } catch (err) {

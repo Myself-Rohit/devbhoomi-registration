@@ -144,6 +144,8 @@ const UserDetails = () => {
   };
 
   if (!user) return <div>Loading...</div>;
+
+  // console.log(user);
   return (
     <div className="p-6  mx-auto bg-gray-200">
       <h2 className="text-2xl font-bold mb-4 text-center">User Details</h2>
@@ -197,6 +199,19 @@ const UserDetails = () => {
           <p>
             <strong>Pass Year : </strong>
             {user.educationInfo.passYear}
+          </p>
+        </div>
+        <div className="">
+          <p>
+            <strong>Payment Status: </strong>
+            {user.paymentInfo.status}
+          </p>
+
+          <p>
+            <strong>Amount Payed : </strong>
+            {user.paymentInfo.status == "completed"
+              ? user.paymentInfo.amount
+              : "Not Payed"}
           </p>
         </div>
       </div>
