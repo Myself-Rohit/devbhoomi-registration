@@ -47,26 +47,30 @@ export default function ExperienceInfoStep({ data, onChange, errors }) {
         </div>
 
         {/* Company */}
-        <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">
-            Company/Organization <span className="text-red-500">*</span>
-          </label>
-          <div className="relative">
-            <Building2 className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-            <input
-              type="text"
-              value={data.company || ""}
-              onChange={(e) => onChange("company", e.target.value)}
-              className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
-                errors.company ? "border-red-300 bg-red-50" : "border-gray-300"
-              }`}
-              placeholder="Enter your company name"
-            />
+        {data.experience !== "Fresher" && (
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              Company/Organization <span className="text-red-500">*</span>
+            </label>
+            <div className="relative">
+              <Building2 className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                value={data.company || ""}
+                onChange={(e) => onChange("company", e.target.value)}
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
+                  errors.company
+                    ? "border-red-300 bg-red-50"
+                    : "border-gray-300"
+                }`}
+                placeholder="Enter your company name"
+              />
+            </div>
+            {errors.company && (
+              <p className="text-sm text-red-600">{errors.company}</p>
+            )}
           </div>
-          {errors.company && (
-            <p className="text-sm text-red-600">{errors.company}</p>
-          )}
-        </div>
+        )}
 
         {/* Years of Experience */}
         <div className="space-y-2">

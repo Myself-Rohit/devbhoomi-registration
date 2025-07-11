@@ -92,8 +92,8 @@ const UserDetails = () => {
         ],
 
         ["", "", ""],
-        ["Payment Info", "Amount", `Rs.${payment.amount || "N/A"}`],
         ["Payment Info", "Status", payment.status || "N/A"],
+        ["Payment Info", "Amount", `Rs.${payment.amount || "N/A"}`],
       ],
     });
 
@@ -210,8 +210,8 @@ const UserDetails = () => {
           <p>
             <strong>Amount Payed : </strong>
             {user.paymentInfo.status == "completed"
-              ? user.paymentInfo.amount
-              : "Not Payed"}
+              ? "Rs. " + user.paymentInfo.amount
+              : "Rs. 0"}
           </p>
         </div>
       </div>

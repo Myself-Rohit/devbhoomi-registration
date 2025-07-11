@@ -144,7 +144,7 @@ export const updateUser = async (req, res) => {
         },
         experienceInfo: {
           experience,
-          company,
+          company: company || "N/A",
           experienceYears,
           skills,
           jobInterest,

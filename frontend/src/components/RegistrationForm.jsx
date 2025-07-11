@@ -85,7 +85,8 @@ export default function RegistrationForm({ onRegistrationComplete }) {
       if (!experienceInfo.experience)
         newErrors.experience = "Your experience is required";
       if (!experienceInfo.skills) newErrors.skills = "Skills is required";
-      if (!experienceInfo.company) newErrors.company = "Company is required";
+      if (experienceInfo.experience !== "Fresher" && !experienceInfo.company)
+        newErrors.company = "Company is required";
       if (!experienceInfo.experienceYears)
         newErrors.experienceYears = "Years of experience is required";
       if (!experienceInfo.jobInterest)
@@ -117,7 +118,7 @@ export default function RegistrationForm({ onRegistrationComplete }) {
       educationInfo: formData.educationInfo,
       experienceInfo: formData.experienceInfo,
       paymentInfo: {
-        amount: 100,
+        amount: 35000,
         paymentId: paymentData.razorpay_payment_id,
         status: "completed",
         timestamp: new Date().toISOString(),
